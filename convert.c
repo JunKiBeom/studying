@@ -23,8 +23,10 @@ int main()
 {
     unsigned int num;
     int n;
-    // scanf("%d %d",&num,&n);    // 숫자를 입력받고 변환 할 진수 입력
-    card_convr(16,2);
+    scanf("%d %d",&num,&n);    // 숫자를 입력받고 변환 할 진수 입력
+    card_convr(num,n);
+    printf("Convert %d to (%d) : ",num,n);
     for (int i=31;i>0;i--)
         printf("%c",result[i]);
+    printf("\n");
 }
