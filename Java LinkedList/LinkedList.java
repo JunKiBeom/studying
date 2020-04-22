@@ -3,7 +3,7 @@ public class LinkedList {
     //String [] data = new String[10];
     // 예시 . 배열 10개 할당 후 처음 공간에 data 저장
     // 최소한 고리의 시작점은 알려주어야 함(node 공간 하나 설정)
-    static int size = 0;
+//    static int size = 0
     LinkedList()// 생성자 함수
     {
         Head = null;
@@ -17,7 +17,7 @@ public class LinkedList {
         newNode.next = Head;
 
         Head = newNode;
-        size++;
+//        size++;
     }
 
     public void print() { //출력 함수
@@ -34,7 +34,7 @@ public class LinkedList {
     }
     public void deleteFirst() {
         Head = Head.next;
-        size--;
+//        size--;
     }
     //링크드리스트 맨 뒤에 새로운 데이터를 추가하는 함수
     public void insertLast(String data) { //함수가 내부적으로만 동작하고 끝낸다는 의미 : void. 리턴할 값이 없음을 의미
@@ -45,7 +45,7 @@ public class LinkedList {
         if (Head ==null) {
 
             Head = newNode;
-            size++;
+//            size++;
         }
         else {
 
@@ -58,10 +58,16 @@ public class LinkedList {
                 tail = tail.next;
 
             tail.next = newNode;
-            size++;
+//            size++;
         }
     }
     public int getLength() {
+        int size = 0;
+        Node tmp = Head;
+        while(tmp != null){
+            size++;
+            tmp=tmp.next;
+        }
         return size;
     }
 }
