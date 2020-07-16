@@ -37,7 +37,7 @@ public class LinkedList {
 //        size--;
     }
     //링크드리스트 맨 뒤에 새로운 데이터를 추가하는 함수
-    public void insertLast(String data) { //함수가 내부적으로만 동작하고 끝낸다는 의미 : void. 리턴할 값이 없음을 의미
+    public void insert(String data) { //함수가 내부적으로만 동작하고 끝낸다는 의미 : void. 리턴할 값이 없음을 의미
         //새로운 노드에 데이터 삽입
         Node newNode = null;
         newNode = new Node(data);
@@ -69,5 +69,17 @@ public class LinkedList {
             tmp=tmp.next;
         }
         return size;
+    }
+
+    void merge(LinkedList list) {
+        Node tmp = list.Head;
+        Node newNode = null;
+        newNode = tmp;
+
+        Node tail = Head;
+        while(tail.next != null)
+            tail = tail.next;
+
+        tail.next = newNode;
     }
 }
