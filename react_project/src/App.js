@@ -26,7 +26,7 @@ function App() {
         </div>
         <button className="input_box_button">저장</button>
       </div>
-
+ㄹ
       <div className="phone_list">
         <div className="phone_item">
           <div className="phone_list_left">
