@@ -78,7 +78,7 @@ const hookedStyles = {
               onPress={() => 
                 changeSetting(flexDirection, flexDirections, setFlexDirection)
             }/>
-            <Text>{flexDirections[flexDirection]}</Text>
+            <Text style={{textAlign:"center"}}>{flexDirections[flexDirection]}</Text>
           </View>
           
           <View style={styles.buttonView}>            
@@ -86,14 +86,14 @@ const hookedStyles = {
             onPress={() => changeSetting(justifyContent,justifyContents,setjustifyContent)
           }
             />
-            <Text>{justifyContents[justifyContent]}</Text>
+            <Text style={{textAlign:"center"}}>{justifyContents[justifyContent]}</Text>
           </View>
           <View style={styles.buttonView}>
             <Button title="CHANGE ALIGN ITEMS"
             onPress={() => changeSetting(alignItems, alignItemsArr, setAlignItems)
             }
             />
-            <Text>{alignItemsArr[alignItems]}</Text>
+            <Text style={{textAlign:"center"}}>{alignItemsArr[alignItems]}</Text>
           </View>
           <View style={styles.buttonView}>
             <Button title="CHANGE DIRECTION"
@@ -101,7 +101,7 @@ const hookedStyles = {
               changeSetting(direction, directions, setdirection)
             }
             />
-            <Text>{directions[direction]}</Text>
+            <Text style={{textAlign:"center"}}>{directions[direction]}</Text>
           </View>
           <View style={styles.buttonView}>
             <Button title="CHANGE FLEX WRAP"
@@ -109,7 +109,7 @@ const hookedStyles = {
               changeSetting(wrap, wraps, setwrap)
             }
             />
-            <Text>{wraps[wrap]}</Text>
+            <Text style={{textAlign:"center"}}>{wraps[wrap]}</Text>
           </View>
           <View style={styles.buttonView}>
             <Button title="ADD SQUARE"
