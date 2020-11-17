@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import { Image, Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
 
@@ -48,21 +47,3 @@ const styles = StyleSheet.create({
 })
 
 export default Home
-=======
-import React from 'react';
-import { Text, View, StyleSheet, Button, TouchableHighlightComponent } from 'react-native';
-
-function Home({navigation}) {
-    return (
-        <>
-            <Text> Hello Home </Text>
-            <Button 
-                title="Go to Layout"
-                onPress={() => navigation.navigate('Layout')} 
-            />
-        </>
-    );
-}
-
-export default Home
->>>>>>> 57c655653d0bce68dfc09b06597459e2488eb4b4
