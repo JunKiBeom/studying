@@ -8,6 +8,8 @@
 
 import Foundation
 
+print("Input Number ex : 1 2")
+
 let a = readLine()?.split(separator: " ").map{Int($0)!}
 
 var sol = Int(a![0]) * Int(a![1])
