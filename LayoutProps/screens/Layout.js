@@ -39,17 +39,18 @@ const hookedStyles = {
     flexWrap: wraps[wrap],
   };
 //추가
-  var p;
+  // var p;
 
   const changeSetting = (value, options, setterFunction) => {
     if (value == options.length - 1) {
       setterFunction(0);
-      p = options[value]; //추가
+      // p = options[value]; //추가
     } else {
           setterFunction(value + 1); 
-          p = options[value]; //추가
+          // p = options[value]; //추가
     }
-    console.log(p);
+    // p = options[value];
+    console.log(options[value]);
   };
 
   const Square = () => {
@@ -77,7 +78,7 @@ const hookedStyles = {
               onPress={() => 
                 changeSetting(flexDirection, flexDirections, setFlexDirection)
             }/>
-            <Text style={{color: '#000000'}}>{p}</Text>
+            <Text style={{textAlign:"center"}}>{flexDirections[flexDirection]}</Text>
           </View>
           
           <View style={styles.buttonView}>            
@@ -85,12 +86,14 @@ const hookedStyles = {
             onPress={() => changeSetting(justifyContent,justifyContents,setjustifyContent)
           }
             />
+            <Text style={{textAlign:"center"}}>{justifyContents[justifyContent]}</Text>
           </View>
           <View style={styles.buttonView}>
             <Button title="CHANGE ALIGN ITEMS"
             onPress={() => changeSetting(alignItems, alignItemsArr, setAlignItems)
             }
             />
+            <Text style={{textAlign:"center"}}>{alignItemsArr[alignItems]}</Text>
           </View>
           <View style={styles.buttonView}>
             <Button title="CHANGE DIRECTION"
@@ -98,6 +101,7 @@ const hookedStyles = {
               changeSetting(direction, directions, setdirection)
             }
             />
+            <Text style={{textAlign:"center"}}>{directions[direction]}</Text>
           </View>
           <View style={styles.buttonView}>
             <Button title="CHANGE FLEX WRAP"
@@ -105,6 +109,7 @@ const hookedStyles = {
               changeSetting(wrap, wraps, setwrap)
             }
             />
+            <Text style={{textAlign:"center"}}>{wraps[wrap]}</Text>
           </View>
           <View style={styles.buttonView}>
             <Button title="ADD SQUARE"

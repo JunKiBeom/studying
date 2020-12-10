@@ -3,6 +3,10 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
+<<<<<<< HEAD
   "urlRandomness": "ww-ui9",
+=======
+  "urlRandomness": "xn-yxm",
+>>>>>>> d4ac1f7eca95b9c168be876c81c577b2112237a8
   "https": false
 }
