@@ -1,12 +1,8 @@
 {
-  "hostType": "tunnel",
+  "hostType": "lan",
   "lanType": "ip",
   "dev": true,
   "minify": false,
-<<<<<<< HEAD
-  "urlRandomness": "vk-hah",
-=======
-  "urlRandomness": "e9-p5t",
->>>>>>> 57c655653d0bce68dfc09b06597459e2488eb4b4
+  "urlRandomness": "ww-ui9",
   "https": false
 }
