@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title> 수익률 계산기 </title>
+  <style>
+      body{
+        text-align: center;
+      }
+      input{
+        text-align: right;
+        font-size: 30px;
+        /* height: 50px; */
+      }
+      input:focus{
+        outline:none;
+      }
+      label{
+        font-size: 30px;
+      }
+    </style>
+</head>
+<body>
+<br><br><br><br><br>
+
+  <div>
+    <label for="seed">시드 머니 : </label>
+    <input type="text" id="seed">
+  </div>
+
+  <div>
+      <button onclick="Hundred()" id="hundred" style="font-size: 15px;"> 100만원 </button>
+      <button onclick="" id="ten" style="font-size: 15px;"> 10만원 </button>
+      <button onclick="" id="five" style="font-size: 15px;"> 5만원 </button>
+      <button onclick="" id="one" style="font-size: 15px;"> 1만원 </button>
+  </div>
+  <br>
+
+  <div>
+    <label> 매수 단가 : </label>
+    <input type="text" id="ratio">
+  </div>
+  <br>
+
+  <div>
+      <label> 매도 단가 : </label>
+      <input type="text" id="sell">
+  </div>
+  <br>
+  
+  <div>
+    <label for="ratio"> 수익률 (%) : </label>
+    <input type="text" id="buy" readonly="readonly">
+  </div>
+  <br>
+
+  <div>
+      <label for="result"> 수익금 : </label>
+      <input type="text" id="result" readonly="readonly">
+  </div>
+  <br>
+
+  <div>
+    <label for="total"> 총 수익금 : </label>
+    <input type="text" id="total" readonly="readonly">
+  </div>
+  <br>
+
+  <button onclick="calc()" style="font-size: 30px;"> 계산하기 </button>
+
+</body>
+<script>
+  function calc() {
+    var seed = document.getElementById('seed');  // 시드 머니 입력
+    var ratio = document.getElementById('ratio');  // 수익률 입력
+    
+    var result = seed.value * (ratio.value/100); // 식을 계산하고 result 변수에 저장
+    var total = seed.value * (1+ratio.value/100); // 식을 계산하고 total 변수에 저장
+
+    document.getElementById('result').value = result;  //  해당 값 출력
+    document.getElementById('total').value = total;  //  해당 값 출력
+    
+    if (result >= 0) {
+      document.getElementById('result').style.color = "#C4291C";
+      document.getElementById('total').style.color = "#C4291C";
+    } 
+    else {
+      document.getElementById('result').style.color = "#1E53C0";
+      document.getElementById('total').style.color = "#1E53C0";
+    }
+
+    function Hundred() {
+      // var seed = document.getElementById('seed');
+
+      document.getElementById('seed').value += "1000000"
+    }
+}
+</script>
+</html>
