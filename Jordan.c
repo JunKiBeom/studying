@@ -14,54 +14,54 @@ int main()	// 10*10
 }
 
 void Jordan(int a) {
-	int s = 0;								// ÀÔ·Â°ª ÆÇº°¿ë
-	int random1, random2 = 0;				// ·£´ı¹øÈ£ Ãâ·Â
-	int all = a*10;							// °æÇ°ÀÇ ¼ö
-	int** arr = malloc(sizeof(int *) * a);	// 10*10 Ã¢°í
+	int s = 0;								// ì…ë ¥ê°’ íŒë³„ìš©
+	int random1, random2 = 0;				// ëœë¤ë²ˆí˜¸ ì¶œë ¥
+	int all = a*10;							// ê²½í’ˆì˜ ìˆ˜
+	int** arr = malloc(sizeof(int *) * a);	// 10*10 ì°½ê³ 
 	for (int i = 0; i < a; i++) {
 		arr[i] = malloc(sizeof(int) * 10);
 	}
 
-	// º¸µå ¼¼ÆÃ
+	// ë³´ë“œ ì„¸íŒ…
 	int tmp = 1;
 	for (int i = 0; i < a; i++)
 		for (int j = 0; j < 10; j++)
 			arr[i][j] = tmp++;
 
 	while (1) {
-		printf("¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú Á¶´ø¸µ »Ì±â ¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú\n\n");
-		printf("·£´ıÀ¸·Î »ÌÀ» °¹¼ö ÀÔ·Â\n0 ÀÔ·Â½Ã Á¾·á\nÀÔ·Â : ");
+		printf("â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜… ì¡°ë˜ë§ ë½‘ê¸° â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…\n\n");
+		printf("ëœë¤ìœ¼ë¡œ ë½‘ì„ ê°¯ìˆ˜ ì…ë ¥\n0 ì…ë ¥ì‹œ ì¢…ë£Œ\nì…ë ¥ : ");
 		scanf("%d", &s);
 
 
-		if (s < 0 || s > all) {	// ¹üÀ§ ÃÊ°ú½Ã ÀçÀÔ·Â
-			printf("\n¼ıÀÚ¸¦ ´Ù½Ã ³Ö¾îÁÖ¼¼¿ä\n");
+		if (s < 0 || s > all) {	// ë²”ìœ„ ì´ˆê³¼ì‹œ ì¬ì…ë ¥
+			printf("\nìˆ«ìë¥¼ ë‹¤ì‹œ ë„£ì–´ì£¼ì„¸ìš”\n");
 			system("pause");
 		}
 
-		else if (s == 0) {	// 0 ÀÔ·Â½Ã Á¾·á
-			printf("\n¡ÚÀÌº¥Æ® Á¾·á!¡Ú\n");
+		else if (s == 0) {	// 0 ì…ë ¥ì‹œ ì¢…ë£Œ
+			printf("\nâ˜…ì´ë²¤íŠ¸ ì¢…ë£Œ!â˜…\n");
 			system("pause");
 			break;
 
 		}
 
-		else {	// ·£´ı »Ì±â!
+		else {	// ëœë¤ ë½‘ê¸°!
 			int cnt = 0;
-			printf("\nÇà¿î ¹øÈ£ : ");
+			printf("\ní–‰ìš´ ë²ˆí˜¸ : ");
 
 			for (int i = 0; (cnt < s) && all != 0; i++) {
 				random1 = rand() % a;
 				random2 = rand() % 10;
 
-				if (arr[random1][random2] != 0) {	// Áßº¹ È®ÀÎ
+				if (arr[random1][random2] != 0) {	// ì¤‘ë³µ í™•ì¸
 					arr[random1][random2] = 0;
 					printf("%d ", random1 * 10 + random2 + 1);
 					cnt++; all--;
 				}
 			}
 
-			// º¸µå Ãâ·Â
+			// ë³´ë“œ ì¶œë ¥
 			printf("\n\n");
 			for (int i = 0; i < a; i++) {
 				for (int j = 0; j < 10; j++) {
@@ -70,7 +70,7 @@ void Jordan(int a) {
 				printf("\n");
 			}
 			if (all == 0) {
-				printf("\n¡ÚÀÌº¥Æ® Á¾·á!¡Ú\n");
+				printf("\nâ˜…ì´ë²¤íŠ¸ ì¢…ë£Œ!â˜…\n");
 				system("pause");
 				break;
 			}
