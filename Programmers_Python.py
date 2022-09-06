@@ -505,3 +505,68 @@ print(answer[3])  # = 3
 print(answer[100])  # =  raise KeyError
 
 
+# Part7-1. for 문과 if문을 한번에
+'''
+문제 설명
+정수를 담은 리스트 mylist를 입력받아, 이 리스트의 원소 중 짝수인 값만을 제곱해 담은 새 리스트를 리턴하는 solution함수를 완성해주세요. 예를 들어, [3, 2, 6, 7]이 주어진 경우
+3은 홀수이므로 무시합니다.
+2는 짝수이므로 제곱합니다.
+6은 짝수이므로 제곱합니다.
+7은 홀수이므로 무시합니다.
+따라서 2의 제곱과 6의 제곱을 담은 리스트인 [4, 36]을 리턴해야합니다.
+
+제한 조건
+mylist는 길이가 100이하인 배열입니다.
+mylist의 원소는 1이상 100 이하인 정수입니다.
+'''
+
+# 내 코드 : filter와 lambda 이용
+def solution(mylist):
+    answer = list(map(lambda x:x**2 ,list(filter(lambda x : x % 2 == 0, mylist))))
+    #answer = [_**2 for _ in mylist if _ % 2 == 0] <- 아마 원하는 답은 이것
+    return answer
+
+# 일반 코드 : for 문 안에서 조건문을 사용해 2-depth 블록을 만듭니다.
+mylist = [3, 2, 6, 7]
+answer = []
+for number in mylist:
+    if number % 2 == 0:
+        answer.append(number**2) # 들여쓰기를 두 번 함
+
+# 추천 코드 파이썬의 list comprehension을 사용하면 한 줄 안에 for 문과 if 문을 한 번에 처리할 수 있습니다.
+mylist = [3, 2, 6, 7]
+answer = [number**2 for number in mylist if number % 2 == 0]
+
+
+# Part7-2. flag OR else
+'''
+문제 설명
+본 문제에서는 자연수 5개가 주어집니다.
+숫자를 차례로 곱해 나온 수가 제곱수1가 되면 found를 출력하고
+모든 수를 곱해도 제곱수가 나오지 않았다면 not found를 출력하는
+코드를 작성해주세요.
+
+예시 1
+입력    출력
+2      found
+4
+2
+5
+1
+
+설명
+수를 곱해나가면 2, 8, 16, 80, 80 이 나옵니다. 
+16은 4를 제곱해 나온 수이므로 이 수는 제곱수입니다. 따라서 found를 출력합니다.
+
+예시 2
+입력    출력
+5      not found
+1
+2
+3
+1
+
+설명
+수를 곱해나가면 5, 5, 10, 30, 30 이 나옵니다. 이중 어떤 수도 제곱 수가 아니므로 not found를 출력합니다.
+제곱수란 어떤 자연수를 제곱한 수입니다. 예를 들어 1, 4, 9, 16, 25, .. 등은 제곱수입니다. ↩
+'''
