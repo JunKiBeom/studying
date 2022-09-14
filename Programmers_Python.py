@@ -570,3 +570,145 @@ answer = [number**2 for number in mylist if number % 2 == 0]
 수를 곱해나가면 5, 5, 10, 30, 30 이 나옵니다. 이중 어떤 수도 제곱 수가 아니므로 not found를 출력합니다.
 제곱수란 어떤 자연수를 제곱한 수입니다. 예를 들어 1, 4, 9, 16, 25, .. 등은 제곱수입니다. ↩
 '''
+
+# 내 코드 & 추천 코드 : 파이썬의 for-else 문을 사용
+import math
+n = [int(input()) for _ in range(5)]
+mul = 1
+for i in n:
+    mul *= i
+    if math.sqrt(mul) == int(math.sqrt(mul)):
+        print('found')
+        break
+else:
+    print('not found')
+
+# 일반 코드 : flag 사용
+import math
+
+if __name__ == '__main__':
+    numbers = [int(input()) for _ in range(5)]
+    multiplied = 1
+    flag = True
+    for number in numbers:
+        multiplied *= number
+        if math.sqrt(multiplied) == int(math.sqrt(multiplied)):
+            flag = False
+            print('found')
+            break
+
+    if flag:
+        print('not found')
+
+
+# Part7-3. 두 변수의 값 바꾸기 - swap
+'''
+예시) a = 3, b = 'abc'를 a = 'abc', b = 3 으로 바꾸기
+'''
+# 다른 언어
+a = 3
+b = 'abc'
+
+temp = a
+a = b
+b = temp
+
+# Python
+a = 3
+b = 'abc'
+
+a, b = b, a
+
+
+# Part7-4. 이진 탐색하기 - binary search
+
+# 일반 코드 : 직접 반복문을 만들어, 이진 탐색 알고리즘을 구현합니다.
+def bisect(a, x, lo=0, hi=None):
+    if lo < 0:
+        raise ValueError('lo must be non-negative')
+    if hi is None:
+        hi = len(a)
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if a[mid] < x:
+            lo = mid + 1
+        else:
+            hi = mid
+    return lo
+
+mylist = [1, 2, 3, 7, 9, 11, 33]
+print(bisect(mylist, 3))
+
+# Python : 파이썬의 bisect.bisect 메소드를 사용
+import bisect
+mylist = [1, 2, 3, 7, 9, 11, 33]
+print(bisect.bisect(mylist, 3))
+
+
+# Part7-5. 클래스 인스턴스 출력하기 - class의 자동 string casting
+'''
+예) 2차원 평면 위의 점을 나타내는 Coord 클래스의 인스턴스를 (x 값, y 값)으로 출력하기
+'''
+# 일반 코드 : 클래스 바깥에 출력 함수를 만들거나, print문 안에서 format 지정
+class Coord(object):
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+
+point = Coord(1, 2)
+print( '({}, {})'.format(point.x, point.y) ) 
+# 또는
+def print_coord(coord):
+    print( '({}, {})'.format(coord.x, coord.y) )
+print_coord(point)
+
+# Python : __str__ 메소드를 사용해 class 내부에서 출력 format을 지정
+class Coord(object):
+    def __init__ (self, x, y):
+        self.x, self.y = x, y
+    def __str__ (self):
+        return '({}, {})'.format(self.x, self.y)
+
+point = Coord(1, 2)
+
+
+# Part7-6. 가장 큰 수, inf
+'''
+코딩 테스트 문제 등을 풀다 보면, 최솟값을 저장하는 변수에 아주 큰 값을 할당해야 할 때가 있습니다. 이번 시간에는 이때에 사용하기 좋은 inf에 대해 알아봅시다.
+'''
+# 일반 코드 : 본인이 생각하는 임의의 큰 수(99999등)를 할당합니다.
+min_val = 99999
+min_val > 100000000
+
+# Python
+# inf는 어떤 숫자와 비교해도 무조건 크다고 판정됩니다.
+min_val = float('inf')
+min_val > 10000000000
+# inf에는 음수 기호를 붙이는 것도 가능합니다.
+max_val = float('-inf')
+
+
+# Part7-7. 파일 입출력 간단하게 하기
+'''
+'myfile.txt'라는 이름의 파일을 읽는 코드를 짜보세요
+'''
+# 일반 코드 : EOF를 만날 때까지, 파일 읽기를 반복합니다.
+f = open('myfile.txt', 'r')
+while True:
+    line = f.readline()
+    if not line: 
+        break
+    raw = line.split()
+    print(raw)
+f.close()
+
+# Python
+'''
+with - as 구문을 이용하면 코드를 더 간결하게 짤 수 있습니다. 
+코드를 아래와 같이 쓰면 다음과 같은 장점이 있습니다.
+파일을 close 하지 않아도 됩니다: with - as 블록이 종료되면 파일이 자동으로 close 됩니다.
+readlines가 EOF까지만 읽으므로, while 문 안에서 EOF를 체크할 필요가 없습니다.
+⨳ with - as 구문은 파일 뿐만 아니라 socket이나 http 등에서도 사용할 수 있습니다.
+'''
+with open('myfile.txt') as file:
+    for line in file.readlines():
+        print(line.strip().split('\t'))
