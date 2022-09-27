@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         
         formatter.dateFormat = "HH:mm aaa"
         let currentTime = formatter.string(from: date as Date)
-        if (alarmTime==currentTime) {
+        if (alarmTime == currentTime) {
             if !alarmFlag {
                 let alarmOnAlert = UIAlertController(title: "알림", message: "설정된 시간입니다", preferredStyle: UIAlertController.Style.alert)
                 let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
@@ -49,12 +49,9 @@ class ViewController: UIViewController {
                 present(alarmOnAlert, animated: true, completion: nil)
                 alarmFlag = true
             }
-            else {
-                alarmFlag = false
-            }
+        }
+        else {
+            alarmFlag = false
         }
     }
-    
-
 }
-
